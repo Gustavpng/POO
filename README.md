@@ -1,5 +1,6 @@
-## <"      "width-"100px">
-### Oiie! Eu sou o Gustavo Cortez!
+<img src= "https://github.com/Gustavpng/POO/assets/170248110/8547dcd4-a140-47d7-b39d-16f8e33ac825" width = "100px" />
+ Oiie! Eu sou o Gustavo Cortez!
+<img src= "https://github.com/Gustavpng/POO/assets/170248110/8547dcd4-a140-47d7-b39d-16f8e33ac825" width = "100px" />
 
 [![]( 	https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)]()
 [![]( 	https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)]()
