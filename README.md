@@ -1,4 +1,4 @@
-<img src= "https://github.com/Gustavpng/POO/assets/170248110/8547dcd4-a140-47d7-b39d-16f8e33ac825" width = "100px" />
+<img src= "https://github.com/Gustavpng/POO/assets/170248110/0b9ad8bc-7e4f-4d9a-ba66-d32fd6d58f04" width = "300px" />
  Oiie! Eu sou o Gustavo Cortez!
 <img src= "https://github.com/Gustavpng/POO/assets/170248110/8547dcd4-a140-47d7-b39d-16f8e33ac825" width = "100px" />
 
