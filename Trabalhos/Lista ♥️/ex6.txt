@@ -1,0 +1,106 @@
+package exe;
+
+import java.util.Date;
+
+// Classe TesteCadernoDeEnderecos
+public class Principal {
+    public static void main(String[] args) {
+        // Criando um objeto CadernoDeEnderecos
+        CadernoDeEnderecos contato = new CadernoDeEnderecos("João", "123456789", "joao@example.com", new Date(), "Rua ABC, 123");
+
+        // Exibindo os detalhes do contato
+        System.out.println("Detalhes do Contato:");
+        System.out.println("Nome: " + contato.getNome());
+        System.out.println("Telefone: " + contato.getTelefone());
+        System.out.println("Email: " + contato.getEmail());
+        System.out.println("Data de Aniversário: " + contato.getDataAniversario());
+        System.out.println("Endereço: " + contato.getEndereco());
+    }
+}
+
+
+
+
+package exe;
+
+import java.util.Date;
+
+// Classe CadernoDeEnderecos
+public class CadernoDeEnderecos {
+    private String nome;
+    private String telefone;
+    private String email;
+    private Date dataAniversario;
+    private String endereco;
+
+    public CadernoDeEnderecos(String nome, String telefone, String email, Date dataAniversario, String endereco) {
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.dataAniversario = dataAniversario;
+        this.endereco = endereco;
+    }
+
+    // Métodos Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getDataAniversario() {
+        return dataAniversario;
+    }
+
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+}
+
+
+package exe;
+
+import java.util.Date;
+
+// Classe TesteCadernoDeEnderecos
+public class TesteCadernoDeEnderecos {
+    public static void main(String[] args) {
+        // Criando um objeto CadernoDeEnderecos
+        CadernoDeEnderecos contato = new CadernoDeEnderecos("João", "123456789", "joao@example.com", new Date(), "Rua ABC, 123");
+
+        // Exibindo os detalhes do contato
+        System.out.println("Detalhes do Contato:");
+        System.out.println("Nome: " + contato.getNome());
+        System.out.println("Telefone: " + contato.getTelefone());
+        System.out.println("Email: " + contato.getEmail());
+        System.out.println("Data de Aniversário: " + contato.getDataAniversario());
+        System.out.println("Endereço: " + contato.getEndereco());
+    }
+}
+

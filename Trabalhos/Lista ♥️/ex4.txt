@@ -1,0 +1,96 @@
+package exe;
+
+// Classe Veículo
+public class Veiculo {
+    protected String cor;
+    protected int potencia;
+    protected int anoFabricacao;
+    protected double valor;
+
+    public Veiculo(String cor, int potencia, int anoFabricacao, double valor) {
+        this.cor = cor;
+        this.potencia = potencia;
+        this.anoFabricacao = anoFabricacao;
+        this.valor = valor;
+    }
+
+    public void mostrarDetalhes() {
+        System.out.println("Cor: " + cor);
+        System.out.println("Potência: " + potencia + " HP");
+        System.out.println("Ano de Fabricação: " + anoFabricacao);
+        System.out.println("Valor: R$ " + valor);
+    }
+}
+
+
+package exe;
+
+// Classe Motocicleta (herda de Veículo)
+public class Motocicleta extends Veiculo {
+    private int cilindradas;
+
+    public Motocicleta(String cor, int potencia, int anoFabricacao, double valor, int cilindradas) {
+        super(cor, potencia, anoFabricacao, valor);
+        this.cilindradas = cilindradas;
+    }
+
+    public void mostrarDetalhes() {
+        super.mostrarDetalhes();
+        System.out.println("Cilindradas: " + cilindradas + " cc");
+    }
+}
+
+
+package exe;
+// Classe Carro (herda de Veículo)
+public class Carro extends Veiculo {
+    private int numPortas;
+
+    public Carro(String cor, int potencia, int anoFabricacao, double valor, int numPortas) {
+        super(cor, potencia, anoFabricacao, valor);
+        this.numPortas = numPortas;
+    }
+
+    public void mostrarDetalhes() {
+        super.mostrarDetalhes();
+        System.out.println("Número de Portas: " + numPortas);
+    }
+}
+
+
+package exe;
+// Classe Caminhão (herda de Veículo)
+public class Caminhao extends Veiculo {
+    private int capacidadeCarga;
+
+    public Caminhao(String cor, int potencia, int anoFabricacao, double valor, int capacidadeCarga) {
+        super(cor, potencia, anoFabricacao, valor);
+        this.capacidadeCarga = capacidadeCarga;
+    }
+
+    public void mostrarDetalhes() {
+        super.mostrarDetalhes();
+        System.out.println("Capacidade de Carga: " + capacidadeCarga + " toneladas");
+    }
+}
+
+
+package exe;
+public class Main {
+    public static void main(String[] args) {
+        Motocicleta moto = new Motocicleta("Vermelha", 150, 2020, 15000.0, 250);
+        Carro carro = new Carro("Preto", 200, 2019, 40000.0, 4);
+        Caminhao caminhao = new Caminhao("Azul", 300, 2018, 80000.0, 10);
+
+        System.out.println("Detalhes da Motocicleta:");
+        moto.mostrarDetalhes();
+        System.out.println();
+
+        System.out.println("Detalhes do Carro:");
+        carro.mostrarDetalhes();
+        System.out.println();
+
+        System.out.println("Detalhes do Caminhão:");
+        caminhao.mostrarDetalhes();
+    }
+}

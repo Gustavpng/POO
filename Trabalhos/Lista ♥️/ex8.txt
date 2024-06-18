@@ -1,0 +1,104 @@
+package exe;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Pais {
+    private String nome;
+    private String capital;
+    private double dimensaoKm2;
+    private List<Pais> fronteiras;
+
+    public Pais(String nome, String capital, double dimensaoKm2) {
+        this.nome = nome;
+        this.capital = capital;
+        this.dimensaoKm2 = dimensaoKm2;
+        this.fronteiras = new ArrayList<>();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public double getDimensaoKm2() {
+        return dimensaoKm2;
+    }
+
+    public void setDimensaoKm2(double dimensaoKm2) {
+        this.dimensaoKm2 = dimensaoKm2;
+    }
+
+    public boolean equals(final Pais outro) {
+        return this.nome.equals(outro.getNome()) && this.capital.equals(outro.getCapital());
+    }
+
+    public void definirFronteiras(Pais... paises) {
+        for (Pais pais : paises) {
+            if (!pais.equals(this)) {
+                this.fronteiras.add(pais);
+            }
+        }
+    }
+
+    public List<Pais> getFronteiras() {
+        return fronteiras;
+    }
+
+    public List<Pais> vizinhosComuns(Pais outroPais) {
+        List<Pais> vizinhosComuns = new ArrayList<>();
+        for (Pais fronteira : this.fronteiras) {
+            if (outroPais.getFronteiras().contains(fronteira)) {
+                vizinhosComuns.add(fronteira);
+            }
+        }
+        return vizinhosComuns;
+    }
+}
+
+
+package exe;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando alguns países
+        Pais brasil = new Pais("Brasil", "Brasília", 8515767);
+        Pais argentina = new Pais("Argentina", "Buenos Aires", 2780400);
+        Pais uruguai = new Pais("Uruguai", "Montevidéu", 181034);
+        Pais paraguai = new Pais("Paraguai", "Assunção", 406752);
+
+        // Definindo as fronteiras dos países
+        brasil.definirFronteiras(argentina, uruguai, paraguai);
+        argentina.definirFronteiras(brasil, uruguai);
+        uruguai.definirFronteiras(brasil, argentina);
+        paraguai.definirFronteiras(brasil);
+
+        // Obtendo e imprimindo as fronteiras de um país
+        List<Pais> fronteirasBrasil = brasil.getFronteiras();
+        System.out.println("Fronteiras do Brasil:");
+        for (Pais pais : fronteirasBrasil) {
+            System.out.println("- " + pais.getNome());
+        }
+
+        // Verificando países vizinhos em comum entre dois países
+        List<Pais> vizinhosComunsBrasilArgentina = brasil.vizinhosComuns(argentina);
+        System.out.println("\nPaíses vizinhos em comum entre Brasil e Argentina:");
+        for (Pais pais : vizinhosComunsBrasilArgentina) {
+            System.out.println("- " + pais.getNome());
+        }
+    }
+}

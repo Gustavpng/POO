@@ -1,0 +1,90 @@
+package exe;
+
+// Classe Data
+public class Data {
+    private int mes;
+    private int dia;
+    private int ano;
+
+    public Data(int mes, int dia, int ano) {
+        if (dataValida(mes, dia, ano)) {
+            this.mes = mes;
+            this.dia = dia;
+            this.ano = ano;
+        } else {
+            System.out.println("Data inválida!");
+            this.mes = 1;
+            this.dia = 1;
+            this.ano = 1900;
+        }
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        if (dataValida(mes, this.dia, this.ano)) {
+            this.mes = mes;
+        } else {
+            System.out.println("Mês inválido!");
+        }
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        if (dataValida(this.mes, dia, this.ano)) {
+            this.dia = dia;
+        } else {
+            System.out.println("Dia inválido!");
+        }
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        if (dataValida(this.mes, this.dia, ano)) {
+            this.ano = ano;
+        } else {
+            System.out.println("Ano inválido!");
+        }
+    }
+
+    public void exibeData() {
+        System.out.println(dia + "/" + mes + "/" + ano);
+    }
+
+    private boolean dataValida(int mes, int dia, int ano) {
+        if (mes < 1 || mes > 12) {
+            return false;
+        }
+
+        int[] diasPorMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int maxDias = diasPorMes[mes - 1];
+
+        if (mes == 2 && ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) {
+            maxDias = 29; // Fevereiro em ano bissexto
+        }
+
+        return dia >= 1 && dia <= maxDias;
+    }
+}
+
+
+package exe;
+// Classe DataTeste
+public class DataTeste {
+    public static void main(String[] args) {
+        // Criando objeto Data
+        Data data = new Data(5, 19, 2024);
+
+        // Exibindo a data
+        System.out.print("Data: ");
+        data.exibeData();
+    }
+}

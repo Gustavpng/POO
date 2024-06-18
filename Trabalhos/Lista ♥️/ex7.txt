@@ -1,0 +1,174 @@
+package exe;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Classe Movimentacao
+class Movimentacao {
+    private String descricao;
+    private double valor;
+    private boolean credito;
+
+    public Movimentacao(String descricao, double valor, boolean credito) {
+        this.descricao = descricao;
+        this.valor = valor;
+        this.credito = credito;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public boolean isCredito() {
+        return credito;
+    }
+
+    public void setCredito(boolean credito) {
+        this.credito = credito;
+    }
+}
+
+
+package exe;
+// Classe ContaCorrente
+class ContaCorrente {
+    private int numero;
+    private double saldo;
+    private boolean especial;
+    private double limite;
+    private List<Movimentacao> movimentacoes;
+
+    public ContaCorrente(int numero, double saldo, boolean especial, double limite) {
+        this.numero = numero;
+        this.saldo = saldo;
+        this.especial = especial;
+        this.limite = limite;
+        this.movimentacoes = new ArrayList<>();
+    }
+
+    public void deposito(double valor) {
+        saldo += valor;
+        movimentacoes.add(new Movimentacao("Depósito", valor, true));
+    }
+
+    public boolean saque(double valor) {
+        if (saldo - valor >= -limite) {
+            saldo -= valor;
+            movimentacoes.add(new Movimentacao("Saque", valor, false));
+            return true;
+        }
+        return false;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public List<Movimentacao> getExtrato() {
+        return movimentacoes;
+    }
+}
+package exe;
+// Classe Banco
+public class Banco {
+    private List<ContaCorrente> contas;
+
+    public Banco() {
+        contas = new ArrayList<>();
+    }
+
+    public void criarConta(int numero, double saldoInicial, boolean especial, double limite) {
+        ContaCorrente novaConta = new ContaCorrente(numero, saldoInicial, especial, limite);
+        contas.add(novaConta);
+    }
+
+    public void excluirConta(int numero) {
+        contas.removeIf(conta -> conta.getNumero() == numero);
+    }
+
+    public boolean saque(int numeroConta, double valor) {
+        for (ContaCorrente conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta.saque(valor);
+            }
+        }
+        return false; // Conta não encontrada
+    }
+
+    public void deposito(int numeroConta, double valor) {
+        for (ContaCorrente conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                conta.deposito(valor);
+                return;
+            }
+        }
+        System.out.println("Conta não encontrada.");
+    }
+
+    public double emissaoSaldo(int numeroConta) {
+        for (ContaCorrente conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta.getSaldo();
+            }
+        }
+        return -1; // Conta não encontrada
+    }
+
+    public List<Movimentacao> extrato(int numeroConta) {
+        for (ContaCorrente conta : contas) {
+            if (conta.getNumero() == numeroConta) {
+                return conta.getExtrato();
+            }
+        }
+        return null; // Conta não encontrada
+    }
+
+    public void transferencia(int origem, int destino, double valor) {
+        boolean saqueEfetuado = saque(origem, valor);
+        if (saqueEfetuado) {
+            deposito(destino, valor);
+        } else {
+            System.out.println("Transferência não realizada. Verifique o saldo e limite de saque.");
+        }
+    }
+}
+
+
+package exe;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando uma instância do banco
+        Banco banco = new Banco();
+
+        // Criando algumas contas
+        banco.criarConta(1, 1000.0, false, 500.0);
+        banco.criarConta(2, 2000.0, true, 1000.0);
+
+        // Realizando algumas operações
+        banco.deposito(1, 500.0);
+        banco.saque(2, 300.0);
+        banco.transferencia(1, 2, 200.0);
+
+        // Exibindo saldo e extrato de uma conta
+        double saldoConta1 = banco.emissaoSaldo(1);
+        System.out.println("Saldo da Conta 1: " + saldoConta1);
+
+        System.out.println("Extrato da Conta 2:");
+        for (Movimentacao movimentacao : banco.extrato(2)) {
+            System.out.println("Descrição: " + movimentacao.getDescricao() + ", Valor: " + movimentacao.getValor() + ", Crédito: " + movimentacao.isCredito());
+        }
+    }
+}

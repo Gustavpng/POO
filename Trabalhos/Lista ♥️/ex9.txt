@@ -1,0 +1,102 @@
+package exe;
+
+// Importe a classe Date do pacote java.util
+import java.util.Date;
+
+// Classe EntradaDeCinema
+public class EntradaDeCinema {
+    private Date dataFilme;
+    private String horario;
+    private String sala;
+    private double valor;
+
+    // Construtor
+    public EntradaDeCinema(Date dataFilme, String horario, String sala, double valor) {
+        this.dataFilme = dataFilme;
+        this.horario = horario;
+        this.sala = sala;
+        this.valor = valor;
+    }
+
+    // Método para calcular desconto baseado na idade do cliente
+    public void calculaDesconto(Data dataNascimento) {
+        int idade = calcularIdade(dataNascimento);
+        if (idade < 12) {
+            valor *= 0.5; // Desconto de 50% para menores de 12 anos
+        } else if (idade >= 12 && idade <= 15) {
+            valor *= 0.6; // Desconto de 40% para estudantes de 12 a 15 anos
+        } else if (idade >= 16 && idade <= 20) {
+            valor *= 0.7; // Desconto de 30% para estudantes de 16 a 20 anos
+        } else if (idade > 20) {
+            valor *= 0.8; // Desconto de 20% para estudantes com mais de 20 anos
+        }
+    }
+
+    // Método para calcular desconto baseado na idade do cliente e número da carteira de estudante
+    public void calculaDesconto(Data dataNascimento, int numeroCarteiraEstudante) {
+        calculaDesconto(dataNascimento); // Chama o método anterior para calcular desconto baseado na idade
+        if (numeroCarteiraEstudante != 0) {
+            valor *= 0.9; // Desconto de 10% para estudantes com carteira
+        }
+    }
+
+    // Método para calcular desconto baseado no horário do filme
+    public void calculaDescontoHorario() {
+        // Obtém a hora do horário do filme (assumindo que o horário é uma string no formato "HH:mm")
+        String[] parts = horario.split(":");
+        int hora = Integer.parseInt(parts[0]);
+
+        // Aplica o desconto se o horário for antes das 16 horas
+        if (hora < 16) {
+            valor *= 0.9; // Desconto de 10%
+        }
+    }
+
+    // Método toString para imprimir todos os dados da entrada de cinema
+    @Override
+    public String toString() {
+        return "Entrada de Cinema:\n" +
+               "Data do Filme: " + dataFilme + "\n" +
+               "Horário: " + horario + "\n" +
+               "Sala: " + sala + "\n" +
+               "Valor: R$ " + valor;
+    }
+
+    // Método privado para calcular a idade com base na data de nascimento fornecida
+    private int calcularIdade(Data dataNascimento) {
+        // Lógica para calcular a idade
+        // Retorne a idade calculada
+        return 0;
+    }
+}
+
+
+
+package exe;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando uma instância de Data para representar a data de nascimento do cliente
+        Data dataNascimentoCliente = new Data(2008, 5, 19); // Exemplo: cliente nascido em 19 de maio de 2008
+
+        // Criando uma instância de EntradaDeCinema com os dados do filme
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataFilme = null;
+        try {
+            dataFilme = sdf.parse("23/05/2024"); // Exemplo: data do filme em 23 de maio de 2024
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        EntradaDeCinema entrada = new EntradaDeCinema(dataFilme, "15:30", "Sala 3", 20.0); // Exemplo: horário, sala e valor
+
+        // Calculando descontos com base na idade do cliente e horário do filme
+        entrada.calculaDesconto(dataNascimentoCliente); // Calcula desconto com base na idade do cliente
+        entrada.calculaDescontoHorario(); // Calcula desconto com base no horário do filme
+
+        // Imprimindo os dados da entrada de cinema
+        System.out.println(entrada.toString());
+    }
+}
