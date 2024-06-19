@@ -5,11 +5,9 @@
 ✁------------------------------------<img src= "https://github.com/Gustavpng/POO/assets/170248110/63015030-3a03-49f9-8a72-df2fdb175214" width = "140px" />--------------
 
 # Trabalhos
- - Trabalho 1 
-[![]()]()
+ - Trabalho 1 <img src= "" width = "100px" />
 
-- Trabalho 2
-[![]()]()
+- Trabalho 2 <img src= "" width = "100px" />
 
 
 
