@@ -5,6 +5,7 @@
 ✁-----------------------------------<img src= "https://github.com/Gustavpng/POO/assets/170248110/63015030-3a03-49f9-8a72-df2fdb175214" width = "140px" />--------------
 
 # JAVA é incrível!
-é verdadi esse bilete
+everdade esse bilete
+
   
 
