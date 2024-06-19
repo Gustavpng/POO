@@ -1,4 +1,4 @@
-<img src="https://github.com/Gustavpng/POO/assets/170248110/0918b302-4feb-4cc7-9c2b-69f542fb5398" width = "600px" /><img src="https://github.com/Gustavpng/POO/assets/170248110/0df992c6-6c8c-45a4-977b-2d4ebd97fc64" width = "100px" />
+<img src="https://github.com/Gustavpng/POO/assets/170248110/0918b302-4feb-4cc7-9c2b-69f542fb5398" width = "700px" /><img src="https://github.com/Gustavpng/POO/assets/170248110/0df992c6-6c8c-45a4-977b-2d4ebd97fc64" width = "100px" />
 ### Estou aprendendo em: [![]( 	https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)]() [![]( 	https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)]()
 
 
