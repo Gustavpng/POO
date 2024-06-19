@@ -1,5 +1,5 @@
 
-# ✎Seja Bem Vindo ao meu repositório POO!
+# ✎Seja Bem Vindo ao meu repositório POO!<img src="https://github.com/Gustavpng/POO/assets/170248110/0df992c6-6c8c-45a4-977b-2d4ebd97fc64" width = "100px" />
 ### Estou aprendendo: [![]( 	https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)]() [![]( 	https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)]()
 
 ✁------------------------------------<img src= "https://github.com/Gustavpng/POO/assets/170248110/63015030-3a03-49f9-8a72-df2fdb175214" width = "140px" />----------------
