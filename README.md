@@ -15,7 +15,7 @@
 - Trabalho 4
   
 ##
-## Gustavo
+
  ### JAVA é incrível!
 *everdade esse bilete*
 
