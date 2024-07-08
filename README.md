@@ -10,7 +10,7 @@
 
 - Trabalho 2   <img src="https://github.com/Gustavpng/POO/assets/170248110/5bb1c020-b413-43e9-bab7-2bb6056f2563" width = "20px" />
 
- - Trabalho 3   
+ - Trabalho 3   <img src="https://github.com/Gustavpng/POO/assets/170248110/5bb1c020-b413-43e9-bab7-2bb6056f2563" width = "20px" />
 
 - Trabalho 4
   
